@@ -1,0 +1,39 @@
+<svg width="1040" height="650" viewBox="0 0 1040 650" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Trail summary terminal screenshot</title>
+  <desc id="desc">A terminal-style screenshot showing Agent Trail generating a session summary with commands, notes, risks, and git snapshot details.</desc>
+  <rect width="1040" height="650" rx="18" fill="#0D1117"/>
+  <rect x="1" y="1" width="1038" height="648" rx="17" stroke="#30363D" stroke-width="2"/>
+  <rect x="0" y="0" width="1040" height="54" rx="18" fill="#161B22"/>
+  <path d="M0 36H1040V54H0V36Z" fill="#161B22"/>
+  <circle cx="28" cy="27" r="7" fill="#FF5F56"/>
+  <circle cx="52" cy="27" r="7" fill="#FFBD2E"/>
+  <circle cx="76" cy="27" r="7" fill="#27C93F"/>
+  <text x="520" y="34" text-anchor="middle" fill="#8B949E" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">agent-trail summary</text>
+
+  <text x="34" y="88" fill="#7EE787" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18">$ agent-trail summary</text>
+
+  <text x="34" y="132" fill="#F0F6FC" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="24" font-weight="700"># Agent Trail Summary</text>
+
+  <text x="34" y="178" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">Goal: fix login token refresh</text>
+  <text x="34" y="208" fill="#8B949E" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Session: 20260502-214500-a1b2c3</text>
+  <text x="34" y="238" fill="#8B949E" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Started: 2026-05-02T21:45:00+00:00</text>
+
+  <text x="34" y="292" fill="#58A6FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="700">## Commands</text>
+  <text x="58" y="326" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- PASS npm test</text>
+  <text x="58" y="356" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- PASS pytest -q</text>
+
+  <text x="34" y="410" fill="#58A6FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="700">## Notes</text>
+  <text x="58" y="444" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Found token refresh logic in src/auth/session.ts</text>
+  <text x="58" y="474" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Added regression coverage for expired access tokens</text>
+
+  <text x="34" y="528" fill="#F2CC60" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="700">## Risks</text>
+  <text x="58" y="562" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="17">- Refresh-token rotation still needs integration coverage</text>
+
+  <rect x="640" y="282" width="350" height="260" rx="10" fill="#111820" stroke="#30363D"/>
+  <text x="664" y="322" fill="#58A6FF" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">Current Git Snapshot</text>
+  <text x="664" y="360" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">Branch: feature/login-refresh</text>
+  <text x="664" y="404" fill="#8B949E" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">Changed files:</text>
+  <text x="688" y="436" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">src/auth/session.ts</text>
+  <text x="688" y="466" fill="#C9D1D9" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">tests/auth/session.test.ts</text>
+  <text x="664" y="510" fill="#7EE787" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="15">2 files changed, 30 insertions</text>
+</svg>
