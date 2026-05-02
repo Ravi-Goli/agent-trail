@@ -12,7 +12,7 @@ def run_git(root: Path, *args: str) -> tuple[int, str, str]:
         capture_output=True,
         check=False,
     )
-    return process.returncode, process.stdout.strip(), process.stderr.strip()
+    return process.returncode, process.stdout.rstrip("\n"), process.stderr.rstrip("\n")
 
 
 def get_git_snapshot(root: Path) -> dict[str, object]:
@@ -27,10 +27,10 @@ def get_git_snapshot(root: Path) -> dict[str, object]:
         files.append(line[3:].strip())
 
     return {
-        "branch": branch if branch_code == 0 else None,
+        "branch": branch.strip() if branch_code == 0 else None,
         "files": files,
         "status": status,
-        "diff_stat": stat if stat_code == 0 else "",
+        "diff_stat": stat.strip() if stat_code == 0 else "",
         "ok": status_code == 0,
-        "error": status_err if status_code != 0 else "",
+        "error": status_err.strip() if status_code != 0 else "",
     }
