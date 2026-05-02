@@ -39,6 +39,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     export = subparsers.add_parser("export-pr-notes", help="Write Markdown PR notes")
     export.add_argument("--output", "-o", default="PR_NOTES.md", help="Output file path")
+    export.add_argument(
+        "--from-git",
+        action="store_true",
+        help="Include a fresh git branch, changed-file, and diff-stat snapshot",
+    )
 
     return parser
 
@@ -80,7 +85,11 @@ def main(argv: list[str] | None = None) -> int:
 
         if args.command == "export-pr-notes":
             output = Path(args.output)
-            output.write_text(render_pr_notes(store.load_session()), encoding="utf-8")
+            git_snapshot = get_git_snapshot(store.root) if args.from_git else None
+            output.write_text(
+                render_pr_notes(store.load_session(), git_snapshot=git_snapshot),
+                encoding="utf-8",
+            )
             print(f"Wrote {output}")
             return 0
 
