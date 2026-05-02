@@ -62,7 +62,7 @@ pytest -q
 
 ## Example PR Notes
 
-```md
+````md
 # PR Notes
 
 Goal: fix login token refresh
@@ -91,10 +91,10 @@ Changed files:
 - tests/auth/session.test.ts
 
 ```text
-src/auth/session.ts      | 12 +++++++++---
+src/auth/session.ts        | 12 +++++++++---
 tests/auth/session.test.ts | 18 ++++++++++++++++++
 ```
-```
+````
 
 ## Commands
 
