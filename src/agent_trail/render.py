@@ -32,9 +32,14 @@ def render_summary(session: dict[str, Any]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def render_pr_notes(session: dict[str, Any]) -> str:
+def render_pr_notes(session: dict[str, Any], git_snapshot: dict[str, Any] | None = None) -> str:
     summary = render_summary(session)
-    return summary.replace("# Agent Trail Summary", "# PR Notes", 1)
+    lines = summary.replace("# Agent Trail Summary", "# PR Notes", 1).rstrip().splitlines()
+
+    if git_snapshot is not None:
+        _append_live_git_snapshot(lines, git_snapshot)
+
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def _append_commands(lines: list[str], events: list[dict[str, Any]]) -> None:
@@ -59,6 +64,27 @@ def _append_snapshot(lines: list[str], events: list[dict[str, Any]]) -> None:
     else:
         lines.append("- No changed files detected")
     diff_stat = latest.get("diff_stat")
+    if diff_stat:
+        lines.extend(["", "```text", str(diff_stat), "```"])
+    lines.append("")
+
+
+def _append_live_git_snapshot(lines: list[str], snapshot: dict[str, Any]) -> None:
+    branch = snapshot.get("branch") or "unknown"
+    files = snapshot.get("files", [])
+    diff_stat = snapshot.get("diff_stat")
+
+    lines.extend(["", "## Current Git Snapshot", ""])
+    lines.append(f"Branch: `{branch}`")
+    lines.append("")
+
+    if files:
+        lines.append("Changed files:")
+        for file_name in files:
+            lines.append(f"- {file_name}")
+    else:
+        lines.append("Changed files: none detected")
+
     if diff_stat:
         lines.extend(["", "```text", str(diff_stat), "```"])
     lines.append("")
