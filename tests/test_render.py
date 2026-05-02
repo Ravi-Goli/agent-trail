@@ -32,3 +32,24 @@ def test_render_pr_notes_uses_pr_title():
     }
 
     assert render_pr_notes(session).startswith("# PR Notes")
+
+
+def test_render_pr_notes_includes_live_git_snapshot():
+    session = {
+        "id": "session-1",
+        "goal": "ship feature",
+        "started_at": "2026-01-01T00:00:00+00:00",
+        "events": [],
+    }
+    snapshot = {
+        "branch": "feature/login",
+        "files": ["src/auth.py", "tests/test_auth.py"],
+        "diff_stat": "src/auth.py | 2 ++",
+    }
+
+    output = render_pr_notes(session, git_snapshot=snapshot)
+
+    assert "## Current Git Snapshot" in output
+    assert "Branch: `feature/login`" in output
+    assert "src/auth.py" in output
+    assert "src/auth.py | 2 ++" in output
