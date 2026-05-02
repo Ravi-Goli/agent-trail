@@ -1,6 +1,10 @@
 # Agent Trail
 
-Agent Trail is a local-first CLI for recording what happened during an AI-assisted coding session.
+[![Test](https://github.com/Ravi-Goli/agent-trail/actions/workflows/test.yml/badge.svg)](https://github.com/Ravi-Goli/agent-trail/actions/workflows/test.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-Apache--2.0-green)
+
+Local-first activity trail for AI-assisted coding sessions.
 
 Context tools help an agent start with better information. Agent Trail focuses on the other side of the workflow: what the agent changed, which commands ran, what failed, what passed, and what should go into the handoff or PR description.
 
@@ -42,14 +46,20 @@ agent-trail summary
 agent-trail export-pr-notes --output PR_NOTES.md
 ```
 
-## Run tests
+## Install From GitHub
+
+```bash
+pip install "git+https://github.com/Ravi-Goli/agent-trail.git"
+```
+
+## Run Tests
 
 ```bash
 pip install -e ".[dev]"
 pytest -q
 ```
 
-## Example summary
+## Example Summary
 
 ```md
 # Agent Trail Summary
@@ -85,6 +95,10 @@ agent-trail snapshot
 agent-trail summary
 agent-trail export-pr-notes --output PR_NOTES.md
 ```
+
+## Suggested GitHub Topics
+
+`ai` `developer-tools` `cli` `python` `git` `agentops` `ai-coding` `productivity`
 
 ## Roadmap
 
