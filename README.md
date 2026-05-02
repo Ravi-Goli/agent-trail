@@ -8,6 +8,10 @@ Local-first activity trail for AI-assisted coding sessions.
 
 Context tools help an agent start with better information. Agent Trail focuses on the other side of the workflow: what the agent changed, which commands ran, what failed, what passed, and what should go into the handoff or PR description.
 
+## Demo Output
+
+![Agent Trail summary terminal screenshot](docs/assets/agent-trail-summary.svg)
+
 ## Why this exists
 
 AI coding sessions can move quickly. After a few prompts, it is easy to lose the thread:
